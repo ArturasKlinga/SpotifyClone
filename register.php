@@ -1,4 +1,5 @@
 <?php
+    include("includes/classes/Account.php");
     include("includes/handlers/register-handler.php");
     include("includes/handlers/login-handler.php");
 ?>
