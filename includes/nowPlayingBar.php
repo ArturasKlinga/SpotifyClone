@@ -15,7 +15,20 @@
     });
 
     function setTrack(trackId, newPlaylist, play) {
-        audioElement.setTrack("assets/music/bensound-acousticbreeze.mp3");
+        $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+            let track = JSON.parse(data);
+            $(".trackName span").text(track.title);
+            $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+                let artist = JSON.parse(data);
+                $(".artistName span").text(artist.name);
+            });
+            $.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+                let album = JSON.parse(data);
+                $(".albumLink img").attr("src", album.artworkPath);
+            });
+            audioElement.setTrack(track.path);
+            audioElement.play();
+        });
         if (play) {
             audioElement.play();
         }
@@ -39,11 +52,11 @@
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img src="https://i.ytimg.com/vi/rb8Y38eilRM/maxresdefault.jpg" class="albumArtwork">
+                    <img src="" class="albumArtwork">
                 </span>
                 <div class="trackInfo">
                     <span class="trackName">
-                        <span>Happy Birthday</span>
+                        <span></span>
                     </span>
                     <span class="artistName">
                         <span>Reece Kenney</span>
