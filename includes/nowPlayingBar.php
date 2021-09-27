@@ -26,8 +26,8 @@
                 let album = JSON.parse(data);
                 $(".albumLink img").attr("src", album.artworkPath);
             });
-            audioElement.setTrack(track.path);
-            audioElement.play();
+            audioElement.setTrack(track);
+            playSong();
         });
         if (play) {
             audioElement.play();
@@ -35,6 +35,12 @@
     }
 
     function playSong() {
+        if (audioElement.audio.currentTime == 0) {
+            $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
+        }
+        else {
+            console.log("DON'T UPDATE TIME");
+        }
         $(".controlButton.play").hide()
         $(".controlButton.pause").show()
         audioElement.play();
@@ -59,7 +65,7 @@
                         <span></span>
                     </span>
                     <span class="artistName">
-                        <span>Reece Kenney</span>
+                        <span></span>
                     </span>
                 </div>
             </div>
