@@ -38,9 +38,7 @@
         if (audioElement.audio.currentTime == 0) {
             $.post("includes/handlers/ajax/updatePlays.php", { songId: audioElement.currentlyPlaying.id });
         }
-        else {
-            console.log("DON'T UPDATE TIME");
-        }
+
         $(".controlButton.play").hide()
         $(".controlButton.pause").show()
         audioElement.play();
@@ -93,13 +91,13 @@
                     </button>
                 </div>
                 <div class="playbackBar">
-                    <span class="progressTime current">0:00</span>
+                    <span class="progressTime current"></span>
                     <div class="progressBar">
                         <div class="progressBarBg">
                             <div class="progress"></div>
                         </div>
                     </div>
-                    <span class="progressTime remaining">0:00</span>
+                    <span class="progressTime remaining"></span>
                 </div>
             </div>
         </div>
