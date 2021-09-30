@@ -139,10 +139,10 @@
                 $(".albumLink img").attr("src", album.artworkPath);
             });
             audioElement.setTrack(track);
+            if (play) {
+                playSong();
+            }
         });
-        if (play) {
-            audioElement.play();
-        }
     }
 
     function playSong() {
