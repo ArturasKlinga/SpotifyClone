@@ -15,7 +15,7 @@
                 <span role="link" tabindex="0" onclick="openPage('index.php')">Browse</span>
             </div>
             <div class="navItem">
-                <span role="link" tabindex="0" onclick="openPage('index.php')">Your Music</span>
+                <span role="link" tabindex="0" onclick="openPage('yourMusic.php')">Your Music</span>
             </div>
             <div class="navItem">
                 <span role="link" tabindex="0" onclick="openPage('index.php')">Reece Keeney</span>
