@@ -16,7 +16,7 @@
 <script>
     $(".searchInput").focus();
     $(function() {
-        let timer;
+        
         $(".searchInput").keyup(function() {
             clearTimeout(timer);
             timer = setTimeout(function() {
