@@ -37,7 +37,7 @@
                             <span class='trackNumber'>$i</span>
                         </div>
                         <div class='trackInfo'>
-                            <span class='trackname'>" . $albumSong->getTitle() . "</span>
+                            <span class='trackName'>" . $albumSong->getTitle() . "</span>
                             <span class='artistName'>" . $albumArtist->getName() . "</span>
                         </div>
                         <div class='trackOptions'>
