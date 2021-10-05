@@ -49,6 +49,16 @@ function deletePlaylist(playlistId) {
     }
 }
 
+function showOptionsMenu(button) {
+    let menu = $(".optionsMenu");
+    let menuWidth = menu.width();
+    let scrollTop = $(window).scrollTop(); // Distance from top of window to top of document.
+    let elementOffset = $(button).offset().top; // DIstance from top of document.
+    let top = elementOffset - scrollTop;
+    let left = $(button).position().left;
+    menu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline" });
+}
+
 
 function formatTime(seconds) {
     let time = Math.round(seconds);
