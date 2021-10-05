@@ -20,6 +20,16 @@ $(window).scroll(function() {
     hideOptionsMenu();
 });
 
+$(document).on("change", "select.playlist", function() {
+    var select = $(this);
+    var playlistId = select.val();
+    var songId = select.prev(".songId").val();
+    $.post("includes/handlers/ajax/addToPlaylist.php", { playlistId: playlistId, songId: songId }).done(function() {
+        hideOptionsMenu();
+        select.val("");
+    });
+})
+
 function openPage(url) {
     if (timer != null) {
         clearTimeout(timer);
@@ -34,7 +44,6 @@ function openPage(url) {
 }
 
 function createPlaylist() {
-    console.log(userLoggedIn);
     let popup = prompt("Please enter the name of your playlist");
     if (alert != null) {
         $.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn }).done(function(error) {
@@ -68,8 +77,10 @@ function hideOptionsMenu() {
 }
 
 function showOptionsMenu(button) {
+    var songId = $(button).prevAll(".songId").val();
     var menu = $(".optionsMenu");
     var menuWidth = menu.width();
+    menu.find(".songId").val(songId);
     var scrollTop = $(window).scrollTop(); // Distance from top of window to top of document.
     var elementOffset = $(button).offset().top; // DIstance from top of document.
     var top = elementOffset - scrollTop;
