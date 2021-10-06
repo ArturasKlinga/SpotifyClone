@@ -61,6 +61,4 @@
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
     <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
-    <div class="item">Item 2</div>
-    <div class="item">Item 3</div>
 </nav>
