@@ -10,9 +10,9 @@
         }
 
         public function login($un, $pw) {
-            $pw = md5($pw);
-            $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$un' AND password='$pw'");
-            if (mysqli_num_rows($query) == 1) {
+            $query = mysqli_query($this->con, "SELECT password FROM users WHERE username='$un'");
+            $queryResult = mysqli_fetch_array($query);
+            if (password_verify($pw, $queryResult['password'])) {
                 return true;
             }
             else {
@@ -37,7 +37,7 @@
         }
 
         private function insertUserDetails($un, $fn, $ln, $em, $pw) {
-            $encryptedPw = md5($pw);
+            $encryptedPw = password_hash($pw, PASSWORD_DEFAULT);
             $profilePic = 'assets/images/profile-pics/head_emerald.png';
             $date = date("Y-m-d");
 

@@ -9,9 +9,9 @@
     $newPassword1 = $_POST['newPassword1'];
     $newPassword2 = $_POST['newPassword2'];
 
-    $oldMd5 = md5($oldPassword);
-    $passwordCheck = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$oldMd5'");
-    if (mysqli_num_rows($passwordCheck) != 1) {
+    $query = mysqli_query($con, "SELECT password FROM users WHERE username='$username'");
+    $queryResult = mysqli_fetch_array($query);
+    if (!password_verify($oldPassword, $queryResult['password'])) {
         echo "Password is incorrect";
         exit();
     }
@@ -20,14 +20,14 @@
         exit();
     }
     if (preg_match('/[^A-Za-z0-9]/', $newPassword1)) {
-        echo "Your passwor must only contain letters and/or numbers";
+        echo "Your password must only contain letters and/or numbers";
         exit();
     }
     if (strlen($newPassword1) > 30 || strlen($newPassword1) < 5) {
         echo "Your password must be between 5 and 30 characters";
         exit();
     }
-    $newMd5 = md5($newPassword1);
-    $query = mysqli_query($con, "UPDATE users SET password='$newMd5' WHERE username='$username'");
+    $newHash = password_hash($newPassword1, PASSWORD_DEFAULT);
+    $query = mysqli_query($con, "UPDATE users SET password='$newHash' WHERE username='$username'");
     echo "Update successful";
 ?>
