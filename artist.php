@@ -43,7 +43,8 @@
                             <span class='artistName'>" . $albumArtist->getName() . "</span>
                         </div>
                         <div class='trackOptions'>
-                            <input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
+                            <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+                            <input type='hidden' class='albumId' value='" . $albumSong->getAlbumId() . "'>
                             <img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
                         </div>
                         <div class='trackDuration'>
@@ -79,5 +80,7 @@
 
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
+    <input type="hidden" class="albumId" id="albumId">
     <?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+    <div class="item" onclick="getAlbumIdBySong(albumId)">Go to album</div>
 </nav>
