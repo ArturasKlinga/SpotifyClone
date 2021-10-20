@@ -109,10 +109,12 @@ function hideOptionsMenu() {
 function showOptionsMenu(button) {
     var songId = $(button).prevAll(".songId").val();
     var albumId = $(button).prevAll(".albumId").val();
+    var artistId = $(button).prevAll(".artistId").val();
     var menu = $(".optionsMenu");
     var menuWidth = menu.width();
     menu.find(".songId").val(songId);
     menu.find(".albumId").val(albumId);
+    menu.find(".artistId").val(artistId);
     var scrollTop = $(window).scrollTop(); // Distance from top of window to top of document.
     var elementOffset = $(button).offset().top; // Distance from top of document.
     var top = elementOffset - scrollTop;
@@ -123,6 +125,11 @@ function showOptionsMenu(button) {
 function getAlbumIdBySong(albumId) {
     var albumId = $(albumId).val();
     openPage("album.php?id=" + albumId);
+}
+
+function getArtistIdBySong(artistId) {
+    var artistId = $(artistId).val();
+    openPage("artist.php?id=" + artistId);
 }
 
 

@@ -45,7 +45,8 @@
                         </div>
                         <div class='trackOptions'>
                             <input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
-                            <input type='hidden' class='albumId' value='" . $playlistSong->getAlbumId() . "'>
+                            <input type='hidden' class='albumId' value='" . $playlistSong->getAlbum()->getId() . "'>
+                            <input type='hidden' class='artistId' value='" . $playlistSong->getArtist()->getId() . "'>
                             <img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
                         </div>
                         <div class='trackDuration'>
@@ -65,6 +66,8 @@
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
     <input type="hidden" class="albumId" id="albumId">
+    <input type="hidden" class="artistId" id="artistId">
     <div class="item" onclick="removeFromPlaylist(this, '<?php echo $playlistId; ?>')">Remove from playlist</div>
     <div class="item" onclick="getAlbumIdBySong(albumId)">Go to album</div>
+    <div class="item" onclick="getArtistIdBySong(artistId)">Go to artist</div>
 </nav>

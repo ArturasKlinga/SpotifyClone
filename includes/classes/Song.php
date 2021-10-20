@@ -40,10 +40,6 @@
             return new Album($this->con, $this->albumId);
         }
 
-        public function getAlbumId() {
-            return (new Album($this->con, $this->albumId))->getId();
-        }
-
         public function getPath() {
             return $this->path;
         }

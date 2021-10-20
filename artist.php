@@ -44,7 +44,7 @@
                         </div>
                         <div class='trackOptions'>
                             <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
-                            <input type='hidden' class='albumId' value='" . $albumSong->getAlbumId() . "'>
+                            <input type='hidden' class='albumId' value='" . $albumSong->getAlbum()->getId() . "'>
                             <img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
                         </div>
                         <div class='trackDuration'>
