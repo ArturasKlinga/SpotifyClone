@@ -485,8 +485,16 @@ input:focus {
     -moz-appearance: none;
 }
 
-.userInfo h1 {
+.userInfo h1,
+.userInfo img {
+    display: block;
     text-align: center;
+    margin: 30px auto;
+}
+
+.userInfo img {
+    border: 1px solid black;
+    border-radius: 250px;
 }
 
 .userDetails {

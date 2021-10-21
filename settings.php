@@ -5,6 +5,7 @@
 <div class="entityInfo">
     <div class="centerSection">
         <div class="userInfo">
+            <img src="<?php echo $userLoggedIn->getProfilePic(); ?>" alt="User avatar">
             <h1><?php echo $userLoggedIn->getFirstAndLastName(); ?></h1>
         </div>
     </div>
