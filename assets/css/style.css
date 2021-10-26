@@ -359,6 +359,10 @@ body {
     margin-bottom: 7px;
 }
 
+.tracklistRow .trackInfo .artistName:hover {
+    cursor: pointer;
+}
+
 .artistInfo {
     text-align: center;
 }

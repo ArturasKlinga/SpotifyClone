@@ -52,8 +52,8 @@
                             <span class='trackNumber'>$i</span>
                         </div>
                         <div class='trackInfo'>
-                            <span class='trackame'>" . $albumSong->getTitle() . "</span>
-                            <span class='artistName'>" . $albumArtist->getName() . "</span>
+                            <span class='trackName'>" . $albumSong->getTitle() . "</span>
+                            <span class='artistName' onclick='openPage(\"artist.php?id=" . $albumArtist->getId() . "\")'>" . $albumArtist->getName() . "</span>
                         </div>
                         <div class='trackOptions'>
                             <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>

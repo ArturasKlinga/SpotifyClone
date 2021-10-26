@@ -40,8 +40,8 @@
                             <span class='trackNumber'>$i</span>
                         </div>
                         <div class='trackInfo'>
-                            <span class='trackName'>" . $playlistSong->getTitle() . "</span>
-                            <span class='artistName'>" . $songArtist->getName() . "</span>
+                            <span class='trackName'> " . $playlistSong->getTitle() . "</span>
+                            <span class='artistName' onclick='openPage(\"artist.php?id=" . $playlistSong->getId() . "\")'>" . $songArtist->getName() . "</span>
                         </div>
                         <div class='trackOptions'>
                             <input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
