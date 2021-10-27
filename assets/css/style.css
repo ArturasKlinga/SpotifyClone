@@ -281,6 +281,10 @@ body {
     font-weight: 200;
 }
 
+.entityInfo .rightSection .headerArtistName:hover{
+    cursor: pointer;
+}
+
 .tracklist {
     padding: 0;
 }

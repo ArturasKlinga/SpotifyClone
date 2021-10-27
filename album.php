@@ -18,7 +18,7 @@
     </div>
     <div class="rightSection">
         <h2><?php echo $album->getTitle(); ?></h2>
-        <p>By <?php echo $artist->getName(); ?></p>
+        <p class="headerArtistName" onclick="openPage('artist.php?id=<?php echo $artist->getId() ?>')">By <?php echo $artist->getName(); ?></p>
         <p><?php echo $album->getNumberOfSongs(); ?> songs</p>
     </div>
 </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class='trackOptions'>
                             <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
-                            <input type='hidden' class='artistId' value='" . $albumSong->getArtist()->getId() . "'>
+                            <input type='hidden' class='artistId' value='" . $albumArtist->getId() . "'>
                             <img class='optionsButton' src='assets/images/icons/more.png' onclick='showOptionsMenu(this)'>
                         </div>
                         <div class='trackDuration'>

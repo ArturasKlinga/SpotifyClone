@@ -23,7 +23,7 @@ $(window).scroll(function() {
 $(document).on("change", "select.playlist", function() {
     var select = $(this);
     var playlistId = select.val();
-    var songId = select.prev(".songId").val();
+    var songId = select.prevAll(".songId").val();
     $.post("includes/handlers/ajax/addToPlaylist.php", { playlistId: playlistId, songId: songId }).done(function() {
         hideOptionsMenu();
         select.val("");
