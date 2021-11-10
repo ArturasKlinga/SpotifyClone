@@ -9,6 +9,19 @@ var shuffle = false;
 var userLoggedIn;
 var timer;
 
+$(window).bind('popstate', function() {
+    var fixedurl = window.location.pathname + window.location.search;
+    if (timer != null) {
+        clearTimeout(timer);
+    }
+    if (fixedurl.indexOf("?") == -1) {
+        fixedurl = window.location.pathname + "?";
+    }
+    var encodedUrl = encodeURI(fixedurl + "&userLoggedIn=" + userLoggedIn);
+    $("#mainContent").load(encodedUrl);
+    $("body").scrollTop(0);
+});
+
 $(document).click(function(click) {
     let target = $(click.target);
     if (!target.hasClass("item") && !target.hasClass("optionsButton")) {
@@ -40,7 +53,7 @@ function openPage(url) {
     let encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
     $("#mainContent").load(encodedUrl);
     $("body").scrollTop(0);
-    history.pushState(null, null, url)
+    history.pushState(null, null, url);
 }
 
 function updateEmail(emailClass) {
